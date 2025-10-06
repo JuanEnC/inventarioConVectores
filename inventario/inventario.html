@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inventario</title>
+    <script src="./inventario.js"></script>
+    <script src="./producto.js"></script>
+    <link rel="stylesheet" href="./main.css">
+  </head>
+  <body>
+    <div>
+      <form>
+        <label for="txtCod"> Codigo:<input type="text" id="txtCod" /> </label>
+        <label for="txtNom"> Nombre:<input type="text" id="txtNom" /> </label>
+        <label> Precio:<input type="number" id="txtPre" /> </label>
+        <label> Cantidad:<input type="number" id="txtCan" value="0" /> </label>
+        <button type="button" id="btnAdd">Agregar</button>        
+        <button type="button" id="btnFind">Buscar</button>
+        <button type="button" id="btnDel">Eliminar</button>
+        <button type="button" id="btnIns">Insertar</button>
+        <button type="button" id="btnList">Listar</button>
+        <button type="button" id="btnExtPr">Extraer Primero</button>
+        <button type="button" id="btnAddFirst">Agregar Inicio</button>
+
+        <button type="reset">Cancelar</button>
+      </form>
+    </div>
+    <div id="detalles"></div>
+    <script>
+      let miInv = new Inventario();
+      let prueba = new Producto(1,"Lapiz",100,10);
+      miInv.agregar(prueba);
+      const btnAdd = document.getElementById("btnAdd");
+      btnAdd.addEventListener("click", () => {
+        let codigo = document.getElementById("txtCod").value;
+        let nombre = document.getElementById("txtNom").value;
+        let precio = document.getElementById("txtPre").value;
+        let cantidad  = document.getElementById("txtCan").value;
+        let producto = new Producto(codigo, nombre, cantidad, precio);
+        miInv.agregar(producto);
+        let msg = document.getElementById("detalles");
+        msg.innerHTML += "<p>Se agrego el producto: " + producto.infoHtml() + "<p>";
+      });
+
+      const btnAddFirst = document.getElementById("btnAddFirst");
+      btnAddFirst.addEventListener("click", () => {
+        let codigo = document.getElementById("txtCod").value;
+        let nombre = document.getElementById("txtNom").value;
+        let precio = document.getElementById("txtPre").value;
+        let cantidad  = document.getElementById("txtCan").value;
+        let producto = new Producto(codigo, nombre, cantidad, precio);
+        miInv.agregarInicio(producto);
+        let msg = document.getElementById("detalles");
+        msg.innerHTML += "<p>Se agrego el producto: " + producto.infoHtml() + " al inicio<p>";
+      });
+
+      const btnIns = document.getElementById("btnIns");
+      btnIns.addEventListener("click", () => {
+        let pos = parseInt(prompt("En que posicion?"));
+        let codigo = document.getElementById("txtCod").value;
+        let nombre = document.getElementById("txtNom").value;
+        let precio = document.getElementById("txtPre").value;
+        let cantidad  = document.getElementById("txtCan").value;
+        let producto = new Producto(codigo, nombre, cantidad, precio);
+        miInv.insertar(producto, pos);
+        let msg = document.getElementById("detalles");
+        msg.innerHTML += "<p>Se inserto el producto: " + producto.infoHtml() + "<p>";
+      });
+
+      const btnList = document.getElementById("btnList");
+      btnList.addEventListener("click", () => {
+        let msg = document.getElementById("detalles");
+        msg.innerHTML += "<h3>Listado</h3>";
+        msg.innerHTML += miInv.listarHtml();
+      });
+
+      const btnDel = document.getElementById("btnDel");
+      btnDel.addEventListener("click", () => {
+        let id = document.getElementById("txtCod").value;
+        let msg = document.getElementById("detalles");
+        let res = miInv.eliminar(id);
+        if (res != null){
+          msg.innerHTML += `Se ha eliminado el producto ${res.nombre}`;
+        }else{
+          msg.innerHTML += "El producto no existe";
+        }
+      });
+
+      const btnFind = document.getElementById("btnFind");
+      btnFind.addEventListener("click", () => {
+        let msg = document.getElementById("detalles");
+        let id = document.getElementById("txtCod").value;
+        msg.innerHTML += "<h3>Buscar producto" + id + "</h3>";
+        let bProducto = miInv.buscar(id);
+        document.getElementById("txtNom").value = bProducto.nombre;
+        document.getElementById("txtPre").value = bProducto.precio;
+        document.getElementById("txtCan").value = bProducto.cantidad;
+      });
+
+      const btnExtPr = document.getElementById("btnExtPr");
+      btnExtPr.addEventListener("click", () => {
+        let msg = document.getElementById("detalles");
+        
+        msg.innerHTML += "<h3>Extraer primer producto" + "</h3>";
+        let bProducto = miInv.extraerPrimero();
+        document.getElementById("txtCod").value = bProducto.id;
+        document.getElementById("txtNom").value = bProducto.nombre;
+        document.getElementById("txtPre").value = bProducto.precio;
+        document.getElementById("txtCan").value = bProducto.cantidad;
+      });
+    </script>
+  </body>
+</html>
