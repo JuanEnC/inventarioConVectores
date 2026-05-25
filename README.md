@@ -1,10 +1,10 @@
-# 🧮 Inventario con Vectores
+#  Inventario con Vectores
 
 Este proyecto es una aplicación web sencilla desarrollada con **HTML**, **CSS** y **JavaScript**, que permite gestionar un inventario utilizando **vectores (arreglos)** como estructura principal para almacenar los productos.
 
 ---
 
-## 🚀 Funcionalidades
+##  Funcionalidades
 
 - Agregar productos al inventario  
 - Eliminar productos  
@@ -14,7 +14,7 @@ Este proyecto es una aplicación web sencilla desarrollada con **HTML**, **CSS**
 
 ---
 
-## 🗂 Estructura del proyecto
+##  Estructura del proyecto
 
 ```
 
@@ -30,7 +30,7 @@ Este proyecto es una aplicación web sencilla desarrollada con **HTML**, **CSS**
 
 ---
 
-## ⚙️ Tecnologías utilizadas
+##  Tecnologías utilizadas
 
 - **HTML5** → estructura de la página  
 - **CSS3** → estilos simples y responsivos  
@@ -38,7 +38,7 @@ Este proyecto es una aplicación web sencilla desarrollada con **HTML**, **CSS**
 
 ---
 
-## 💻 Cómo ejecutar el proyecto
+##  Cómo ejecutar el proyecto
 
 1. Clona este repositorio:
 ```
@@ -56,7 +56,7 @@ Este proyecto es una aplicación web sencilla desarrollada con **HTML**, **CSS**
 
 ---
 
-## 🧩 Ejemplo de uso
+##  Ejemplo de uso
 
 1. Escribe los datos del producto (nombre, código, cantidad, precio).
 2. Presiona **Agregar** para incluirlo al inventario.
@@ -67,17 +67,17 @@ Este proyecto es una aplicación web sencilla desarrollada con **HTML**, **CSS**
 ## 🧑‍💻 Autor
 
 **JuanEnC**
-📘 [Repositorio en GitHub](https://github.com/JuanEnC/inventarioConVectores)
+ [Repositorio en GitHub](https://github.com/JuanEnC/inventarioConVectores)
 
 ---
 
-## 📄 Licencia
+##  Licencia
 
 Este proyecto está bajo la licencia **MIT License**.
 Puedes usarlo, modificarlo y distribuirlo libremente con fines educativos.
 
 ---
 
-### 💡 Nota
+###  Nota
 
 Este proyecto fue creado con fines **educativos** para practicar el uso de **vectores, clases y manipulación del DOM** en JavaScript.
